@@ -42,6 +42,8 @@ jobs:
       ASSIGN_DAY: ${{ github.event.inputs.day_override }}
       # master plan 算出的 PAR；'|| 24' 兜底：忘传时落 24 而不是 run.py 的默认 3
       ACCOUNT_PARALLEL: ${{ github.event.inputs.par_override || '24' }}
+      # 2026-11-23 补接线（同 node-016）：全池口径 40~42s，Secret 缺失=回退过半口径 ~84s/首（勿删）
+      POOL_PLAY_SECONDS: ${{ secrets.POOL_PLAY_SECONDS }}
       # ---- 以下 env 与主仓 run.yml brush 段逐项对照（2026-11-13，缺了以主仓为准）----
       # 2026-11-10 更正：ASSIGN_ON 废弃回退语义，置 0 = 每片 no_assign.marker + exit 1。必须保持 '1'。
       ASSIGN_ON: '1'
